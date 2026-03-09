@@ -7,7 +7,11 @@ class CompanyViewSet(ModelViewSet):
     serializer_class = CompanySerializer
 
     def get_queryset(self):
-        return Company.objects.all()
+        print("user",self.request.user)
+        return Company.objects.filter(created_by= self.request.user)
     
     def perform_create(self, serializer):
-        serializer.save(user=self.request.user)
+        print(self.request.user)
+        serializer.save(created_by =self.request.user)
+
+    
