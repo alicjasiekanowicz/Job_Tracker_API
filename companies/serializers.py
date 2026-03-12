@@ -13,6 +13,7 @@ class CompanySerializer(serializers.ModelSerializer):
         "website",
         "location",
         "description",
+        "number_of_workers",
         "created_at",
         "updated_at"
         ]
